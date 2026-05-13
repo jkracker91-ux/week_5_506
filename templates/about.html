@@ -1,24 +1,134 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="row">
-    <div class="col-md-8 mx-auto">
-        <h1 class="h3 mb-4">About</h1>
-        <p>This is a placeholder About page. Replace its contents with your team's About content as part of the Week 5 assignment.</p>
+<div class="row justify-content-center">
+    <div class="col-lg-9 col-xl-8">
+        <div class="text-center mb-4">
+            <span class="badge rounded-pill text-bg-danger mb-2">About us</span>
+            <h1 class="h2 text-body">About</h1>
+            <p class="lead text-body-secondary mb-0">This is a placeholder About page. Replace its contents with your team's About content as part of the Week 5 assignment.</p>
+        </div>
 
-        <h2 class="h5 mt-4">Required sections</h2>
-        <ul>
-            <li>Project name and one-or-two-sentence pitch</li>
-            <li>Team members and roles</li>
-            <li>Project type (which of the seven from Week 4 lecture, or a custom variant)</li>
-            <li>Endpoints planned (5–8 routes, one-line description each)</li>
-            <li>Web-based data source (API name, docs link, specific endpoint, free-tier notes)</li>
-            <li>Schema sketch (tables and columns)</li>
-            <li>Link to your team's S3 bucket</li>
-            <li>Link to your team's GitHub org</li>
-        </ul>
+        <div class="card border-0 shadow-sm rounded-4 mb-4">
+            <div class="card-body p-0">
+                <div class="list-group list-group-flush rounded-4">
+        
+                    <div class="list-group-item bg-light border-danger-subtle py-3">
+                        <div class="d-flex w-100 justify-content-between align-items-center flex-wrap gap-2">
+                            <h2 class="h5 mb-0 text-body">Required sections</h2>
+                            <span class="badge text-bg-light text-body border border-danger-subtle">checklist</span>
+                        </div>
+                    </div>
+        
+                    <div class="list-group-item d-flex align-items-start gap-3 py-3">
+                        <span class="badge rounded-pill bg-light text-body border border-danger-subtle align-middle mt-1">1</span>
+                        <span>
+                            <strong>Project name and pitch:</strong><br>
+                            🍽️ Foodie: The easiest way to plan your meals and automatically scale recipes based on servings.
+                        </span>
+                    </div>
+        
+                    <div class="list-group-item d-flex align-items-start gap-3 py-3">
+                        <span class="badge rounded-pill bg-light text-body border border-danger-subtle align-middle mt-1">2</span>
+                        <span>
+                            <strong>Team members and roles:</strong><br>
+                            Sam – server-side development, backend logic, API integration<br>
+                            Asia – frontend, UI/UX, JavaScript & CSS<br>
+                            Justin – database management, security, system design<br>
+                            Sowmya – coordinator, CONTRACTS.md owner, integration testing, PR review
+                        </span>
+                    </div>
+        
+                    <div class="list-group-item d-flex align-items-start gap-3 py-3">
+                        <span class="badge rounded-pill bg-light text-body border border-danger-subtle align-middle mt-1">3</span>
+                        <span>
+                            <strong>Project type:</strong><br>
+                            Recipe Scaler and Meal Planner
+                        </span>
+                    </div>
+        
+                    <div class="list-group-item d-flex align-items-start gap-3 py-3">
+                        <span class="badge rounded-pill bg-light text-body border border-danger-subtle align-middle mt-1">4</span>
+                        <span>
+                            <strong>Endpoints planned:</strong><br>
+                            GET /recipes/search – search recipes via Edamam API<br>
+                            GET /recipes/:id – fetch recipe details + nutrition<br>
+                            POST /recipes/scale – scale ingredient quantities<br>
+                            POST /mealplan – add recipe to weekly planner<br>
+                            GET /mealplan – retrieve weekly meal plan<br>
+                            DELETE /mealplan/:day – remove meal from day<br>
+                            GET /nutrition/:id – nutrition breakdown per recipe
+                        </span>
+                    </div>
+        
+                    <div class="list-group-item d-flex align-items-start gap-3 py-3">
+                        <span class="badge rounded-pill bg-light text-body border border-danger-subtle align-middle mt-1">5</span>
+                        <span>
+                            <strong>Web-based data sources:</strong><br>
+                            Edamam Recipe API (primary): https://developer.edamam.com/edamam-recipe-api<br>
+                            USDA FoodData Central (backup): https://fdc.nal.usda.gov/api-guide.html<br>
+                            <small class="text-muted">Edamam has strict free-tier limits (~10 users/month), USDA is fully free but lacks recipe structure.</small>
+                        </span>
+                    </div>
+        
+                    <div class="list-group-item d-flex align-items-start gap-3 py-3">
+                        <span class="badge rounded-pill bg-light text-body border border-danger-subtle align-middle mt-1">6</span>
+                        <span>
+                            <strong>Schema sketch:</strong><br>
+                            Users(id, name, email, password_hash)<br>
+                            Recipes(id, api_id, name, image_url, calories, protein, carbs, fat)<br>
+                            Ingredients(id, recipe_id, name, quantity, unit)<br>
+                            MealPlans(id, user_id, day_of_week, recipe_id, servings)
+                        </span>
+                    </div>
+        
+                    <div class="list-group-item d-flex align-items-start gap-3 py-3">
+                        <span class="badge rounded-pill bg-light text-body border border-danger-subtle align-middle mt-1">7</span>
+                        <span>
+                            <strong>S3 bucket:</strong><br>
+                            http://lemonbirdy-506-hw1.s3-website-us-west-2.amazonaws.com/ <br>
+                            <small class="text-muted">Using bucket from first assignment</small>
+                        </span>
+                    </div>
+        
+                    <div class="list-group-item d-flex align-items-start gap-3 py-3 border-0">
+                        <span class="badge rounded-pill bg-light text-body border border-danger-subtle align-middle mt-1">8</span>
+                        <span>
+                            <strong>GitHub org:</strong><br>
+                            https://github.com/TeamDelta506
+                        </span>
+                    </div>
+        
+                </div>
+            </div>
+        </div>
 
-        <p class="text-muted small">All members of your team must have the same content here. See the assignment instructions in <code>README.md</code>.</p>
+        <div class="accordion accordion-flush shadow-sm rounded-4 overflow-hidden border border-danger-subtle" id="aboutTips">
+            <div class="accordion-item border-danger-subtle">
+                <h2 class="accordion-header">
+                    <button class="accordion-button bg-light text-body fw-medium" type="button" data-bs-toggle="collapse" data-bs-target="#tipOne" aria-expanded="true" aria-controls="tipOne">
+                        Team consistency
+                    </button>
+                </h2>
+                <div id="tipOne" class="accordion-collapse collapse show" data-bs-parent="#aboutTips">
+                    <div class="accordion-body small text-secondary">
+                        All members of your team must have the same content here. See the assignment instructions in <code class="text-body">README.md</code>.
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item border-danger-subtle">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-white text-body fw-medium" type="button" data-bs-toggle="collapse" data-bs-target="#tipTwo" aria-expanded="false" aria-controls="tipTwo">
+                        What to replace first
+                    </button>
+                </h2>
+                <div id="tipTwo" class="accordion-collapse collapse" data-bs-parent="#aboutTips">
+                    <div class="accordion-body small text-secondary">
+                        Start with the pitch and team roster, then fill in endpoints and your chosen API so reviewers can understand the project at a glance.
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 {% endblock %}
