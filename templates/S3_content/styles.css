@@ -1,0 +1,41 @@
+/* Course 506 Week 5 Skeleton — minimal custom styles.
+   Bootstrap handles the bulk of layout and components. Add team-specific
+   styling here as your project grows. */
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1;
+}
+
+/* Login submit: red hover + brief red pulse (replaces green primary hover if theme uses green) */
+@keyframes login-submit-flash {
+    0% {
+        box-shadow: 0 0 0 0 rgba(220, 53, 69, 0.55);
+    }
+    100% {
+        box-shadow: 0 0 0 10px rgba(220, 53, 69, 0);
+    }
+}
+
+.login-submit-btn {
+    transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+}
+
+.login-submit-btn:hover,
+.login-submit-btn:focus-visible {
+    background-color: #dc3545;
+    border-color: #dc3545;
+    color: #fff;
+    animation: login-submit-flash 0.55s ease-out;
+}
+
+.login-submit-btn:active {
+    background-color: #b02a37;
+    border-color: #a52834;
+    color: #fff;
+}

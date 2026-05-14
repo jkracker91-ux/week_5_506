@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm">
         <div class="container">
             <a class="navbar-brand" href="{{ url_for('home') }}">Skeleton</a>
             <ul class="navbar-nav ms-auto">
@@ -43,7 +43,7 @@
         {% with messages = get_flashed_messages() %}
             {% if messages %}
                 {% for message in messages %}
-                <div class="alert alert-warning">{{ message }}</div>
+                <div class="alert alert-info border-0 shadow-sm mb-2" role="alert">{{ message }}</div>
                 {% endfor %}
             {% endif %}
         {% endwith %}
